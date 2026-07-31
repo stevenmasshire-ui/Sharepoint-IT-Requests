@@ -4,11 +4,15 @@ Step-by-step order for standing up the whole app. See `data-model.md`, `app-desi
 
 ## 1. Provision the SharePoint lists
 
+**No local installs needed (recommended for a locked-down work PC):** follow [`docs/manual-list-setup.md`](manual-list-setup.md) to create both lists by hand in the SharePoint browser UI.
+
+**Alternative, if you can run PowerShell somewhere** (a personal machine, or Azure Cloud Shell in the browser at [shell.azure.com](https://shell.azure.com), which needs no local install since it runs server-side):
 ```powershell
 Install-Module PnP.PowerShell -Scope CurrentUser   # first time only
 ./provisioning/New-ITRequestLists.ps1 -SiteUrl "https://<yourtenant>.sharepoint.com/sites/<yoursite>"
 ```
-Confirm in the SharePoint site: two lists, `IT Requests` and `IT Request Comments`, with the columns described in `data-model.md`.
+
+Either way, confirm in the SharePoint site: two lists, `IT Requests` and `IT Request Comments`, with the columns described in `data-model.md`.
 
 ## 2. Create the canvas app
 
